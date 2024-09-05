@@ -1,0 +1,11 @@
+IO_LOC  "led" 10;
+IO_PORT "led" DRIVE=8 IO_TYPE=LVCMOS18;
+
+IO_LOC  "xtal" 52;
+IO_PORT "xtal" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "btn[0]" 3;
+IO_PORT "btn[0]" IO_TYPE=LVCMOS18;
+
+IO_LOC  "btn[1]" 4;
+IO_PORT "btn[1]" IO_TYPE=LVCMOS18;

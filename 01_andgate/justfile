@@ -1,0 +1,3 @@
+verilate:
+    verilator --trace --exe --binary -Wall testbench.v
+    ./obj_dir/Vtestbench
