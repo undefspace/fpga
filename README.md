@@ -6,7 +6,7 @@
 ## Инструменты
 
 ### Железо
-В качестве целевого оборудования используется плата `Gowin GW1NR-9`.
+В качестве целевого оборудования используется плата [_Tang Nano 9K_](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html) на базе FPGA `Gowin GW1NR-9`.
 
 ### Софт
 Установите [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build) -
