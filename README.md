@@ -6,7 +6,9 @@
 ## Инструменты
 
 ### Железо
-В качестве целевого оборудования используется плата [_Tang Nano 9K_](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html) на базе FPGA `Gowin GW1NR-9`.
+В качестве целевого оборудования используется плата 
+[Tang Nano 9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
+на базе FPGA `Gowin GW1NR-9`.
 
 ### Софт
 Установите [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build) -
@@ -21,6 +23,13 @@
   - Систему сборки Just - готовые примеры будут использовать её
 
 ## Ресурсы
-  - [Verilator](https://verilator.org/)
-  - [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build)
-  - [Tang Nano 9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
+  - [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build) - коллекция
+    инструментов для симуляции и синтеза
+  - [Verilator](https://verilator.org/) - симулятор Verilog
+  - [Tang Nano 9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html) -
+    отладочная плата на базе GW1NR-9
+  - [PulseView](https://sigrok.org/wiki/PulseView) - просмотрщик файлов сигналов
+  - [Ben Eater](https://www.youtube.com/@BenEater) очень хорошо объясняет
+    принципы работы логических схем
+  - [netlistsvg](https://github.com/nturley/netlistsvg) - преобразователь
+    netlist-ов в изображения в формате SVG

@@ -9,7 +9,7 @@ module clkdiv(
 reg [31:0] counter = 0;
 
 always @(posedge clk_in) begin
-    if(counter >= divider - 1) begin
+    if(counter >= (divider / 2) - 1) begin
         clk_out <= ~clk_out;
         counter <= 0;
     end else begin

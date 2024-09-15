@@ -14,16 +14,19 @@ module clkdiv#(
     output reg clk_out
 );
 
-// A 32-bit register which is initialized to `DIVIDER - 1`, which is calculated at synthesis time.
+// A `localparam` is essentially a const value calculated at synthesis time
+localparam RELOAD = (DIVIDER / 2) - 1;
+
+// A 32-bit register which is initialized to `RELOAD`.
 // Initialization occurs when the simulation starts, or (in the real world) when power is applied.
-reg [31:0] counter = DIVIDER - 1;
+reg [31:0] counter = RELOAD;
 
 // This "code" "runs" at the positive edge of `clk_in` (when it transitions from 0 to 1)
 always @(posedge clk_in) begin
     if(counter == 0) begin
         // A <= is a non-blocking assignment. The following two lines "execute" simulateneously:
-        clk_out <= ~clk_out;    // toggle output
-        counter <= DIVIDER - 1; // re-initialize counter
+        clk_out <= ~clk_out; // toggle output
+        counter <= RELOAD;   // re-initialize counter
     end else begin
         counter <= counter - 1; // count down
     end

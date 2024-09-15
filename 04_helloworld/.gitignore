@@ -1,0 +1,5 @@
+*.json
+*.fs
+obj_dir/
+*.vcd
+*.svg

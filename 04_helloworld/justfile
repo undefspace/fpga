@@ -1,0 +1,22 @@
+verilate:
+    verilator --trace --exe --binary -Wall testbench.v
+    ./obj_dir/Vtestbench
+
+chip := "GW1NR-LV9QN88PC6/I5"
+family := "GW1N-9C"
+
+synth:
+    yosys -p "read_verilog top.v clkdiv.v uart_tx.v; synth_gowin -json top.json"
+    nextpnr-himbaechel --json top.json --write pnrtop.json --device {{chip}} --vopt family={{family}} --vopt cst=top.cst
+    gowin_pack -d {{family}} -o pack.fs pnrtop.json
+
+upload_to_flash: synth
+    openFPGALoader -fb tangnano9k pack.fs
+
+upload_to_sram: synth
+    openFPGALoader -b tangnano9k pack.fs
+
+visualize MODULE:
+    yosys -p "read_verilog top.v clkdiv.v uart_tx.v; prep -top {{MODULE}}; write_json vis.json"
+    # https://github.com/nturley/netlistsvg
+    netlistsvg vis.json -o {{MODULE}}.svg
