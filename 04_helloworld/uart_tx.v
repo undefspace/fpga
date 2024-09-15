@@ -26,8 +26,15 @@
 // checking. If it sees that the parity bit that it received does not match
 // the expected value, it knows that what it received is not what the sender
 // intended to transmit. On the other hand, if it receives the value that it
-// expected, it has a 50% confidence that it received the correct data.
-// 
+// expected, it has a
+//   $$f(\{0\}) / f(\{0,2,4,6,8\}),$$ where
+//       $$f(S) = \sum\limits_{n \in S} \binom{9}{n} p^n (1-p)^{9-n}$$
+// confidence that it received the correct data, where $p$ is the probability
+// of a single bit flip (since we are living in the world where the parity is
+// correct, we are only interested in the cases where the number of bit flips
+// is even; the received value is correct if and only if this number is zero).
+// See also: https://math.stackexchange.com/questions/4398331/probability-of-an-error-going-undetected-with-a-single-parity-bit
+//
 // This transmitter module is always configered for 8 data bits, even parity and
 // 1 stop bit. The baudrate matches the input clock rate.
 module uart_tx(
