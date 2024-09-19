@@ -1,0 +1,36 @@
+
+
+
+
+bsc_flags := "-bdir .build -simdir .build"
+
+chip := "GW1NR-LV9QN88PC6/I5"
+family := "GW1N-9C"
+
+sim:
+    mkdir -p .build
+    bsc {{bsc_flags}} -sim -elab -g mkTestbench -u testbench.bsv
+    bsc {{bsc_flags}} -sim -e mkTestbench
+    ./a.out
+
+synth:
+    mkdir -p .build
+    bsc {{bsc_flags}} -verilog -elab -g mkTop -u Top.bsv
+    yosys -p "read_verilog mkTop.v; synth_gowin -json .build/top.json"
+    nextpnr-himbaechel --json .build/top.json --write .build/pnrtop.json --device {{chip}} --vopt family={{family}} --vopt cst=tn9k.cst --freq 27
+    gowin_pack -d {{family}} -o .build/pack.fs .build/pnrtop.json
+
+upload_to_flash: synth
+    openFPGALoader -fb tangnano9k .build/pack.fs
+
+upload_to_sram: synth
+    openFPGALoader -b tangnano9k .build/pack.fs
+
+visualize:
+    yosys -p "read_verilog mkTop.v; prep -top mkTop; write_json .build/vis.json"
+    # https://github.com/nturley/netlistsvg
+    netlistsvg .build/vis.json -o vis.svg
+
+clean:
+    rm -rf .build
+    mkdir -p .build
