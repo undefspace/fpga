@@ -1,0 +1,83 @@
+IO_LOC  "lcd_csx" 28;
+IO_PORT "lcd_csx" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "lcd_dcx" 25;
+IO_PORT "lcd_dcx" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "lcd_wrx" 29;
+IO_PORT "lcd_wrx" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "lcd_rdx" 26;
+IO_PORT "lcd_rdx" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "lcd_rsx" 30;
+IO_PORT "lcd_rsx" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "lcd_dl[8]" 35;
+IO_PORT "lcd_dl[8]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[7]" 75;
+IO_PORT "lcd_dl[7]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[6]" 40;
+IO_PORT "lcd_dl[6]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[5]" 76;
+IO_PORT "lcd_dl[5]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[4]" 34;
+IO_PORT "lcd_dl[4]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[3]" 77;
+IO_PORT "lcd_dl[3]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[2]" 33;
+IO_PORT "lcd_dl[2]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dl[1]" 27;
+IO_PORT "lcd_dl[1]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[17]" 70;
+IO_PORT "lcd_dh[17]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[16]" 71;
+IO_PORT "lcd_dh[16]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[15]" 51;
+IO_PORT "lcd_dh[15]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[14]" 72;
+IO_PORT "lcd_dh[14]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[13]" 42;
+IO_PORT "lcd_dh[13]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[12]" 73;
+IO_PORT "lcd_dh[12]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[11]" 41;
+IO_PORT "lcd_dh[11]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_dh[10]" 74;
+IO_PORT "lcd_dh[10]" DRIVE=8 PULL_MODE=DOWN;
+
+IO_LOC  "lcd_bkl" 53;
+IO_PORT "lcd_bkl" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "xpt_cs" 69;
+IO_PORT "xpt_cs" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "spi_mi" 31;
+IO_PORT "spi_mi" PULL_MODE=UP;
+
+IO_LOC  "spi_mo" 68;
+IO_PORT "spi_mo" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "spi_clk" 32;
+IO_PORT "spi_clk" DRIVE=8 PULL_MODE=UP;
+
+IO_LOC  "rst" 3;
+IO_PORT "rst" IO_TYPE=LVCMOS18;
+
+IO_LOC  "xtal" 52;
+IO_PORT "xtal" IO_TYPE=LVCMOS33 PULL_MODE=UP;

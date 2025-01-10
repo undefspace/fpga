@@ -1,0 +1,4 @@
+slpp_all/
+*.json
+obj_dir/
+*.fs

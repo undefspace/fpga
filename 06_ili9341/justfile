@@ -1,0 +1,22 @@
+chip := "GW1NR-LV9QN88PC6/I5"
+family := "GW1N-9C"
+
+synth:
+    synlig -p "read_systemverilog clkdiv.sv ili9341.sv top.sv; synth_gowin -json top.json"
+    nextpnr-himbaechel --freq 27 --json top.json --write pnrtop.json --device {{chip}} --vopt family={{family}} --vopt cst=tn9k.cst
+    gowin_pack -d {{family}} -o pack.fs pnrtop.json
+
+verilate:
+    verilator --trace --exe --binary -Wall testbench.v
+    ./obj_dir/Vtestbench
+
+upload_to_flash: synth
+    openFPGALoader -fb tangnano9k pack.fs
+
+upload_to_sram: synth
+    openFPGALoader -b tangnano9k pack.fs
+
+# visualize MODULE:
+#     synlig -p "read_systemverilog -sv ili9341.sv; prep -top {{MODULE}}; write_json vis.json"
+#     # https://github.com/nturley/netlistsvg
+#     netlistsvg vis.json -o {{MODULE}}.svg
